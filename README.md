@@ -15,7 +15,11 @@ Add *nanoc-sprockets* to you Gemfile.
 
      gem 'nanoc-sprockets'
 
-### Usage
+## Config
+
+In default.rb, require nanoc-sprockets:
+
+    require 'nanoc-sprockets'
 
 Add a new entry in your *nanoc.yaml*.
 
@@ -32,9 +36,44 @@ data_sources:
     js_compressor: uglifier
 ```
 
-### License
+* items_root: the default prefix for you assets identifier
+* compile: an array of js and css files to load as nanoc's items. Any other files are loaded automatically
+* path: the path to the assets
+* css_compressor: See [sprockets minifying assets][sprockets-minify-assets]
+* js_compressor: See [sprockets minifying assets][sprockets-minify-assets]
+* assets_additionnal_paths: an array of paths to be added to sprockets. Can be vendor/assets/javascript for example
+
+Add specific rules for assets in *Rules*:
+
+```ruby
+compile '/assets/*/' do
+end
+route '/assets/*/' do
+  Sprockets::Helpers.asset_path(item[:filename])
+end
+```
+
+If you plan to use sass, you should probably install the *[sprockets-sass][]* gem. Also install the *[uglifier][]* gem to minify javascript.
+
+## Usage
+
+To link to any assets, use the helpers providers by [sprockets-helpers][].
+
+* image_path
+* font_path
+* stylesheet_path
+* javascript_path
+* asset_path
+
+## License
 
 (c) 2014 Stormz
 
-[sprockets]: https://github.com/sstephenson/sprockets
+MIT
+
+[sprockets]: https://github.com/sstephenson/sprockets-minify-assets
 [nanoc]: http://nanoc.ws/
+[sprockets-minify-assets]: https://github.com/sstephenson/sprockets#minifying-assets
+[sprockets-sass]: https://github.com/petebrowne/sprockets-sass/
+[sprockets-helpers]: https://github.com/petebrowne/sprockets-helpers
+[uglifier]: https://github.com/lautis/uglifier
