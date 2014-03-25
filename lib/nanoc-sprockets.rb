@@ -10,6 +10,12 @@ module Nanoc::DataSources
       path =~ /assets/ && !%w(.js .css).include?(File.extname(filename))
     end
 
+    def up
+      @config = {path: 'assets',
+                 compile: [],
+                 assets_additionnal_paths: []}.merge(@config)
+    end
+
     def items
       assets = environment.each_logical_path(*compiled_assets).to_a
 
