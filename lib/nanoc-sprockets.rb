@@ -34,11 +34,11 @@ module Nanoc::DataSources
     def create_environment
       env = ::Sprockets::Environment.new
 
-      env.append_path File.join(config[:path], 'javascripts')
-      env.append_path File.join(config[:path], 'images')
-      env.append_path File.join(config[:path], 'stylesheets')
-      config[:assets_path].each do |path|
-        env.append_path File.join(config[:path], path)
+      %w(javascripts images stylesheets fonts).each do |asset|
+        env.append_path File.join(config[:path], asset)
+      end
+      config[:assets_additionnal_paths].each do |path|
+        env.append_path path
       end
       env.js_compressor  = config[:js_compressor].to_sym
       env.css_compressor = config[:css_compressor].to_sym
