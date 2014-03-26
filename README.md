@@ -42,6 +42,8 @@ data_sources:
 * css_compressor: See [sprockets minifying assets][sprockets-minify-assets]
 * js_compressor: See [sprockets minifying assets][sprockets-minify-assets]
 * assets_additionnal_paths: an array of paths to be added to sprockets. Can be vendor/assets/javascript for example
+* digest: The assets path will have a digest. You should toggle it to false during development.
+* assets_host: Link to assets from a dedicated server.
 
 Add specific rules for assets in *Rules*:
 

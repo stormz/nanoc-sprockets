@@ -52,7 +52,8 @@ module Nanoc::DataSources
       Sprockets::Helpers.configure do |c|
         c.environment = env
         c.prefix      = config[:items_root]
-        c.digest      = production?
+        c.asset_host  = config[:asset_host] if config[:asset_host]
+        c.digest      = config[:digest]     if config[:digest]
       end
       env
     end
