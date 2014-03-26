@@ -11,9 +11,11 @@ module Nanoc::DataSources
     end
 
     def up
-      @config = {path: 'assets',
-                 compile: [],
-                 assets_additionnal_paths: []}.merge(@config)
+      @config = {
+        path: 'assets',
+        compile: [],
+        assets_additionnal_paths: []
+      }.merge(@config)
     end
 
     def items
