@@ -25,12 +25,9 @@ module Nanoc::DataSources
         asset = environment.find_asset(bundle)
         is_binary = !!(asset.pathname && !@site.config[:text_extensions].include?(File.extname(asset.pathname)[1..-1]))
 
+        content_of_filename = is_binary ? asset.pathname : asset.to_s
         attributes = {filename: bundle, binary: is_binary, mtime: asset.mtime}
-        if is_binary
-          Nanoc::Item.new(asset.pathname, attributes, bundle, attributes)
-        else
-          Nanoc::Item.new(asset.to_s, attributes, bundle, attributes)
-        end
+        Nanoc::Item.new(content_of_filename, attributes, bundle, attributes)
       end
     end
 
