@@ -59,6 +59,8 @@ If you plan to use sass, you should probably install the *[sprockets-sass][]* ge
 
 ## Usage
 
+### Helpers
+
 To link to any assets, use the helpers providers by [sprockets-helpers][].
 
 * image_path
@@ -66,6 +68,19 @@ To link to any assets, use the helpers providers by [sprockets-helpers][].
 * stylesheet_path
 * javascript_path
 * asset_path
+
+### Enable digest
+
+By default, digest of assets is not enabled. It means that js/css/images files are not concatened and the filename is preversed. Useful for development.
+
+To enable digest, add to *lib/default.rb*:
+
+```ruby
+Sprockets::Helpers.configure do |c|
+  c.digest = true
+end
+
+```
 
 ## License
 
