@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'nanoc-sprockets'
-  s.version     = '0.1.0alpha3'
+  s.version     = '0.1.0'
   s.summary     = 'Use sprockets as a datasource for nanoc.'
   s.description = 'Use sprockets as a datasource for nanoc.'
   s.homepage    = 'https://github.com/stormz/nanoc-sprockets'
