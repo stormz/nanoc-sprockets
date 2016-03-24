@@ -27,7 +27,7 @@ module Nanoc::DataSources
 
         content_of_filename = is_binary ? asset.pathname : asset.to_s
         attributes = {filename: bundle, binary: is_binary, mtime: asset.mtime}
-        @items.create(content_of_filename, attributes, bundle, attributes)
+        new_item(content_of_filename, attributes, bundle, attributes)
       end
     end
 
