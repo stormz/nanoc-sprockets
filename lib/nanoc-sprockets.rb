@@ -27,8 +27,8 @@ module Nanoc::DataSources
         is_binary = !!(asset.pathname && !@site_config[:text_extensions].include?(File.extname(asset.pathname)[1..-1]))
 
         content_of_filename = is_binary ? asset.pathname : asset.to_s
-        attributes = {filename: identifier, binary: is_binary, mtime: asset.mtime}
-        new_item(content_of_filename, attributes, identifier, attributes)
+        attributes = {filename: identifier, mtime: asset.mtime}
+        new_item(content_of_filename, attributes, identifier, binary: is_binary)
       end
     end
 
