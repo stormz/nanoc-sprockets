@@ -19,7 +19,9 @@ Add *nanoc-sprockets* to you Gemfile.
 
 In default.rb, require nanoc-sprockets:
 
-    require 'nanoc-sprockets'
+```ruby
+require 'nanoc-sprockets'
+```
 
 Add a new entry in your *nanoc.yaml*.
 
