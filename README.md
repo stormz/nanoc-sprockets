@@ -48,9 +48,9 @@ data_sources:
 Add specific rules for assets in *Rules*:
 
 ```ruby
-compile '/assets/*/' do
+compile '/assets/**/*' do
 end
-route '/assets/*/' do
+route '/assets/**/*' do
   Sprockets::Helpers.asset_path(item[:filename])
 end
 ```
